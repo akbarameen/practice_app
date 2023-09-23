@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     android:background="@color/accent_color"
-    android:transitionName="transition_login"
-    tools:context=".LoginActivity">
-
-
+    tools:context=".TaskThreeAddEdit">
     <ImageView
         android:id="@+id/login_bg"
         android:layout_width="match_parent"
@@ -18,6 +17,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:scaleType="fitXY"
         app:layout_constraintRight_toRightOf="parent"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,21 +29,23 @@
         android:layout_margin="30sp"
         >
         <ImageView
-            android:id="@+id/login_back_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/img_btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:clickable="true"
             android:src="@drawable/white_arrow_back_24"
-            android:padding="0dp"/>
+            android:padding="0dp"
+            android:focusable="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/user_login"
+            android:text="@string/add_new"
             android:textStyle="bold"
             android:textColor="@color/accent_color"
             android:textSize="40sp"
             android:textAllCaps="true"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="40dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="@string/enter_username"
+                android:hint="@string/enter_name"
                 android:textColorHint="@color/secondary_color"
                 app:boxStrokeColor="@color/input_border_color"
                 app:boxStrokeWidthFocused="2dp"
@@ -66,6 +69,7 @@
                 app:endIconTint="@color/primary_color"
                 >
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="text"
@@ -77,94 +81,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="@string/enter_password"
+                android:hint="@string/father_name"
                 android:textColorHint="@color/secondary_color"
                 app:boxStrokeColor="@color/input_border_color"
-                app:hintTextColor="@color/primary_color"
                 app:boxStrokeWidthFocused="2dp"
-                app:startIconDrawable="@drawable/ic_baseline_lock_24"
+                app:hintTextColor="@color/primary_color"
+                app:startIconDrawable="@drawable/ic_baseline_supervised_user_circle_24"
                 app:startIconTint="@color/primary_color"
-                app:endIconMode="password_toggle"
+                app:endIconMode="clear_text"
                 app:endIconTint="@color/primary_color"
                 >
-
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_fName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:inputType="text"
                     android:textColor="@color/primary_color"
-                    android:inputType="textPassword"
-
                     />
-
-
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--            remember me and forget password buttons-->
-            <RelativeLayout
+            <Spinner
+                android:id="@+id/genders_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                >
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-                    android:text="@string/remember_me"
-                    android:textColor="@color/primary_color"
-                    android:buttonTint="@color/primary_color"
-                    android:backgroundTint="@color/primary_color"
-                    android:layout_centerVertical="true"
-                    />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/forget_password"
-                    android:textAllCaps="false"
-                    android:backgroundTint="#00000000"
-                    android:textColor="@color/primary_color"
-                    android:layout_alignParentEnd="true"
-                    tools:ignore="RelativeOverlap" />
-
-            </RelativeLayout>
-
+                android:layout_marginTop="20dp"
+                android:background="@drawable/spinner_bg"
+                android:dropDownSelector="@color/white"
+                />
             <Button
+                android:id="@+id/btn_add_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/user_login"
+                android:text="@string/add"
                 android:layout_marginTop="25dp"
                 android:paddingVertical="13dp"
-                android:id="@+id/btn_login"
                 android:elevation="5dp"
                 android:textSize="16sp"
                 android:backgroundTint="@color/primary_color"
                 android:textColor="@color/accent_color"
                 android:transitionName="transition_login"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/create_account"
-                android:textAllCaps="true"
-                android:layout_marginTop="10dp"
-                android:paddingVertical="20dp"
-                android:backgroundTint="#00000000"
-                android:textColor="@color/primary_color"
-                android:onClick="callUserSignup"
-                android:elevation="0dp"
-                android:layout_gravity="center"
-                android:transitionName="transition_signup"
-                android:id="@+id/login_signup_btn"
-                />
-
-
         </LinearLayout>
 
-
-
-
-
-
     </LinearLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
