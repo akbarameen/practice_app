@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start"
+    tools:context=".DashboardActivity">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/accent_color"
+        android:layout_gravity="start"
+        android:theme="@style/NavigationTheme"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu"
+        />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/accent_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_color"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/img_btn_menu"
+                android:layout_centerVertical="true"
+                android:layout_height="35dp"
+                android:layout_width="35dp"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/img_btn_menu"
+                android:text="Dashboard"
+                android:layout_marginStart="20dp"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/accent_color"
+
+                android:layout_centerVertical="true"/>
+            <ImageView
+
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_add"
+                app:tint="@color/white" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

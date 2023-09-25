@@ -33,4 +33,24 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+//        boolean startedFromMain = getIntent().getBooleanExtra("STARTED_FROM_DASHBOARD", false);
+//
+//        if (!startedFromMain) {
+//            // If started from MainActivity, go back to MainActivity
+//            Intent intent = new Intent(this, MainActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
+//            finish();
+//
+//        } else {
+//            // Otherwise, go back to Dashboard
+//            super.onBackPressed();
+//        }
+
+
+        finishAffinity();
+    }
 }
