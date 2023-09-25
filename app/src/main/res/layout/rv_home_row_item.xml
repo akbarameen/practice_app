@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        android:backgroundTint="@color/secondary_color"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="2"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Name: "
+                        android:textColor="@color/primary_color"
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_color"
+                        android:text="Akbar Amin"
+                        android:textSize="17dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_color"
+                        android:text="Address: "
+                        android:textSize="14dp" />
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Malir Karachi"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="Cell: "
+                        android:textColor="@color/primary_color"
+                        android:textSize="14dp" />
+                    <TextView
+                        android:id="@+id/tv_cell"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/edit_button"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="0dp"
+                    android:paddingTop="5dp"
+                    android:drawableEnd="@drawable/ic_baseline_edit_24"
+                    android:drawableTint="@color/accent_color"
+                    android:fontFamily="sans-serif-condensed"
+                    android:paddingHorizontal="10dp"
+                    android:text="Edit"
+                    android:backgroundTint="@color/primary_color"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/accent_color" />
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/primary_color"
+                    android:drawableEnd="@drawable/ic_delete"
+                    android:drawableTint="#EDEDED"
+                    android:fontFamily="sans-serif-condensed"
+                    android:paddingHorizontal="15dp"
+                    android:text="Delete"
+                    android:paddingTop="5dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#F6F4F4" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

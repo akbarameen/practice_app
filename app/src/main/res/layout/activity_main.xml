@@ -17,5 +17,14 @@
         android:paddingVertical="20dp"
         android:textColor="@color/white"
         />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:backgroundTint="@color/primary_color"
+        android:paddingVertical="20dp"
+        android:textColor="@color/white"
+        />
 
 </LinearLayout>
