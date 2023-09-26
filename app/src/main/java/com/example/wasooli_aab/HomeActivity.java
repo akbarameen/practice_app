@@ -4,15 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +46,9 @@ public class HomeActivity extends AppCompatActivity {
     private int mYear, mMonth, mDay, mHour, mMinute;
 
 
+    // menu
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +89,10 @@ public class HomeActivity extends AppCompatActivity {
 //            Window window = getWindow();
 //            window.setStatusBarColor(R.color.primary_color); // Change to the color you want
 //        }
+
+
+
+
     }
 
     public void addDataDialog(){
@@ -102,13 +114,13 @@ public class HomeActivity extends AppCompatActivity {
         edtC1 = dialog.findViewById(R.id.edt_c1);
         edtD1 = dialog.findViewById(R.id.edt_d1);
 
+
         edtDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 datePicker(edtDate);
             }
         });
-
         edtC1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,5 +195,27 @@ public class HomeActivity extends AppCompatActivity {
         }, mYear, mMonth, mDay);
         datePickerDialog.show();
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.rv_item_menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.btn_edit) {
+            // Handle the menu item click here
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 }
