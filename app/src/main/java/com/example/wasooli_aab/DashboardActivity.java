@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.wasooli_aab.customer.CustomerActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -98,13 +99,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             Intent intent = new Intent(DashboardActivity.this, HomeActivity.class);
             drawerLayout.closeDrawer(GravityCompat.START);
             startActivity(intent);
-        } else if (id == R.id.nav_chart) {
-
+        } else if (id == R.id.nav_customer) {
             drawerLayout.closeDrawer(GravityCompat.START);
             Toast.makeText(this, "Chart is clicked", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(DashboardActivity.this, HomeActivity.class);
-//            drawerLayout.closeDrawer(GravityCompat.START);
-//            startActivity(intent);
+            Intent intent = new Intent(DashboardActivity.this, CustomerActivity.class);
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(intent);
         } else if (id == R.id.nav_profile) {
             drawerLayout.closeDrawer(GravityCompat.START);
             Toast.makeText(this, "Profile is clicked", Toast.LENGTH_SHORT).show();
