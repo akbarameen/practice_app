@@ -8,8 +8,17 @@
             android:icon="@drawable/ic_home"/>
         <item
             android:id="@+id/nav_customer"
-            android:title="Chart"
+            android:title="Customer"
             android:icon="@drawable/ic_person"/>
+
+        <item
+            android:id="@+id/nav_vendor"
+            android:title="Vendor"
+            android:icon="@drawable/ic_vendor"/>
+        <item
+            android:id="@+id/nav_employee"
+            android:title="Employee"
+            android:icon="@drawable/ic_baseline_supervised_user_circle_24"/>
     </group>
 
     <item android:title="Profile">

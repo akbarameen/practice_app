@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.wasooli_aab.customer.CustomerActivity;
+import com.example.wasooli_aab.employee.EmployeeActivity;
+import com.example.wasooli_aab.vendor.VendorActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -101,14 +103,20 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             startActivity(intent);
         } else if (id == R.id.nav_customer) {
             drawerLayout.closeDrawer(GravityCompat.START);
-            Toast.makeText(this, "Chart is clicked", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(DashboardActivity.this, CustomerActivity.class);
-            drawerLayout.closeDrawer(GravityCompat.START);
             startActivity(intent);
-        } else if (id == R.id.nav_profile) {
+        } else if (id == R.id.nav_employee) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            Intent intent = new Intent(DashboardActivity.this, EmployeeActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_vendor) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            Intent intent = new Intent(DashboardActivity.this, VendorActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_profile) {
             drawerLayout.closeDrawer(GravityCompat.START);
             Toast.makeText(this, "Profile is clicked", Toast.LENGTH_SHORT).show();
-        }  else if (id == R.id.nav_logout) {
+        } else if (id == R.id.nav_logout) {
             drawerLayout.closeDrawer(GravityCompat.START);
             Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
 //            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

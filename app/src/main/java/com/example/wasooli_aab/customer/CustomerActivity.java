@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.wasooli_aab.R;
 import com.example.wasooli_aab.dummyList.DummyListModel;
@@ -29,23 +31,19 @@ public class CustomerActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_customer);
 
-        // Assuming you have a RecyclerView with the id recyclerView in your activity
+        // Hooks
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        FloatingActionButton fabAddData = findViewById(R.id.fBtn_add);
 
-// Get the dummy data list
+        // Get the dummy data list
         dataList = DummyListModelHolder.getInstance().getDummyList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-// Create and set the adapter
+        // Create and set the adapter
         adapter = new RVCustomerAdapter(CustomerActivity.this,dataList);
         recyclerView.setAdapter(adapter);
 
 
-        FloatingActionButton fabAddData = findViewById(R.id.fBtn_add);
-
-
-// ...
-
-// Launch AddDataActivity
+        // Launch AddDataActivity
         fabAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,8 +51,6 @@ public class CustomerActivity extends AppCompatActivity {
                 startActivityForResult(intent, ADD_DATA_REQUEST);
             }
         });
-
-
 
     }
 
@@ -68,10 +64,13 @@ public class CustomerActivity extends AppCompatActivity {
             DummyListModel updatedData = (DummyListModel) data.getSerializableExtra("updatedData");
             DummyListModel newData = (DummyListModel) data.getSerializableExtra("newData");
 
+            Log.e("updatedMsg" , "updated data " + updatedData);
+            Log.e("updatedMsg" , "New  data " + newData);
             if (updatedData != null) {
                 // Find and update existing data
                 for (int i = 0; i < dataList.size(); i++) {
                     if (dataList.get(i).getId() == updatedData.getId()) {
+                        Toast.makeText(this, "id = " + updatedData.getId(), Toast.LENGTH_SHORT).show();
                         dataList.set(i, updatedData);
                         break;
                     }

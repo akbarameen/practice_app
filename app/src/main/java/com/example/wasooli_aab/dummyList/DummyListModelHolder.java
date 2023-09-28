@@ -34,10 +34,23 @@ public class DummyListModelHolder {
         model2.setC1(new Date());
         model2.setD1(new Date());
 
+
+        DummyListModel model3 = new DummyListModel();
+        model3.setId(3);
+        model3.setName("Michel Chandler");
+        model3.setAddress("436 ERC Street, Somewhere, Uk");
+        model3.setCellPhone("111-5678");
+        model3.setAmount(1000);
+        model3.setDate(new Date());
+        model3.setA1(50);
+        model3.setB1("Category C");
+        model3.setC1(new Date());
+        model3.setD1(new Date());
         // Add more dummy records as needed...
 
         dummyList.add(model1);
         dummyList.add(model2);
+        dummyList.add(model3);
         // Add more models as needed...
     }
 

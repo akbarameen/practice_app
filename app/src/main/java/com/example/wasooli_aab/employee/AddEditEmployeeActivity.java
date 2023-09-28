@@ -1,13 +1,14 @@
-package com.example.wasooli_aab.customer;
+package com.example.wasooli_aab.employee;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,23 +16,25 @@ import android.widget.TextView;
 import com.example.wasooli_aab.R;
 import com.example.wasooli_aab.dummyList.DummyListModel;
 
-public class AddEditCustomerActivity extends AppCompatActivity {
+import java.util.Calendar;
+
+public class AddEditEmployeeActivity extends AppCompatActivity {
     DummyListModel editData = new DummyListModel();
-    EditText editTextName,editTextAddress,editTextCellPhone,editTextQuantity;
+    EditText editTextName,editTextAddress,editTextCellPhone,editTextDate;
     Button btnAddEdit;
     TextView title;
     ImageView backBtn;
-    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_edit_customer);
+        setContentView(R.layout.activity_add_edit_employee);
 
         //Hooks
         editTextName = findViewById(R.id.edt_name);
         editTextAddress = findViewById(R.id.edt_address);
         editTextCellPhone = findViewById(R.id.edt_cell);
-        editTextQuantity = findViewById(R.id.edt_quantity);
+        editTextDate = findViewById(R.id.edt_date);
         btnAddEdit = findViewById(R.id.btn_add_edit);
         title = findViewById(R.id.txt_title);
         backBtn = findViewById(R.id.img_btn_back);
@@ -53,7 +56,9 @@ public class AddEditCustomerActivity extends AppCompatActivity {
                 addEditData();
             }
         });
+
     }
+
     private void gettingAndSettingData() {
         // Model received from previous activity
         editData = (DummyListModel) getIntent().getSerializableExtra("editData");
@@ -64,24 +69,47 @@ public class AddEditCustomerActivity extends AppCompatActivity {
             editTextName.setText(editData.getName());
             editTextAddress.setText(editData.getAddress());
             editTextCellPhone.setText(editData.getCellPhone());
-            editTextQuantity.setText(String.valueOf(editData.getA1()));
+            editTextDate.setText(String.valueOf(editData.getA1()));
             title.setText("Update \nRecord");
             btnAddEdit.setText("Update");
         }
+    }
+    private void showDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        // Handle the selected date
+                        // For example, you can update a TextView to display the selected date
+                        TextView tvSelectedDate = findViewById(R.id.tv_date);
+                        String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                        tvSelectedDate.setText(selectedDate);
+                    }
+                }, year, month, day);
+
+        datePickerDialog.show();
     }
     private void addEditData(){
         // Get the data entered by the user
         String name = editTextName.getText().toString();
         String address = editTextAddress.getText().toString();
         String cellPhone = editTextCellPhone.getText().toString();
-        int a1 = Integer.parseInt(editTextQuantity.getText().toString());
+        // Get the selected date
+        TextView tvSelectedDate = findViewById(R.id.tv_date);
+        String date = tvSelectedDate.getText().toString();
+//        int a1 = Integer.parseInt(editTextDate.getText().toString());
 
         if (editData != null) {
             // Update existing data
             editData.setName(name);
             editData.setAddress(address);
             editData.setCellPhone(cellPhone);
-            editData.setA1(a1);
+//            editData.setDate(date);
 
 
             Log.e("updatedMsg", "name" + editData.getName());
@@ -97,7 +125,7 @@ public class AddEditCustomerActivity extends AppCompatActivity {
             newData.setName(name);
             newData.setAddress(address);
             newData.setCellPhone(cellPhone);
-            newData.setA1(a1);
+//            newData.setA1(date);
 
             // Return the new data to MainActivity
             Intent resultIntent = new Intent();
