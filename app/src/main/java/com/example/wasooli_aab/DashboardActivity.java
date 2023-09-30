@@ -2,6 +2,7 @@ package com.example.wasooli_aab;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -12,12 +13,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wasooli_aab.customer.CustomerActivity;
 import com.example.wasooli_aab.employee.EmployeeActivity;
 import com.example.wasooli_aab.vendor.VendorActivity;
 import com.google.android.material.navigation.NavigationView;
+
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,6 +30,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     ImageView menuIcon;
     LinearLayout contentView;
     static final float END_SCALE = 0.7f;
+
+
+    // search view
+    TextView searchText;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +48,34 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         navigationView = findViewById(R.id.navigation_view);
         menuIcon = findViewById(R.id.img_btn_menu);
         contentView = findViewById(R.id.content);
+        searchText = findViewById(R.id.searchText);
+        searchView = findViewById(R.id.searchView);
 
+        // searchView
+        searchText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchText.setVisibility(View.GONE);
+                searchView.setVisibility(View.VISIBLE);
+                searchView.setIconified(false);
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Implement your search logic here using the 'query' variable
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Implement any live searching logic here if needed
+                return true;
+            }
+        });
+
+
+        // NavigationView Drawer Method
         navigationDrawer();
 
 
@@ -64,7 +99,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         animateNavigationDrawer();
 
     }
-
     private void animateNavigationDrawer() {
         //Add any color or remove it to use the default one!
         //To make it transparent use Color.Transparent in side setScrimColor();
@@ -85,7 +119,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             }
         });
     }
-
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
@@ -93,7 +126,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         } else
             super.onBackPressed();
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -126,4 +158,13 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         }
         return true;
     }
+
+    // This method is called when the search text is clicked (defined in XML)
+    public void onSearchTextClick(View view) {
+        searchText.setVisibility(View.GONE);
+        searchView.setVisibility(View.VISIBLE);
+        menuIcon.setVisibility(View.GONE);
+        searchView.setIconified(false);
+    }
+
 }
