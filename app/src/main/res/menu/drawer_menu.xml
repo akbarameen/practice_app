@@ -19,6 +19,10 @@
             android:id="@+id/nav_employee"
             android:title="Employee"
             android:icon="@drawable/ic_baseline_supervised_user_circle_24"/>
+        <item
+            android:id="@+id/nav_delivery"
+            android:title="Delivery"
+            android:icon="@drawable/ic_amount"/>
     </group>
 
     <item android:title="Profile">

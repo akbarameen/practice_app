@@ -6,5 +6,5 @@
     <color name="primary_color2">#8ECDDD</color>
     <color name="secondary_color">#ced2ff</color>
     <color name="accent_color">#FFFADD</color>
-
+    <color name="red_color">#FF0E0E</color>
 </resources>

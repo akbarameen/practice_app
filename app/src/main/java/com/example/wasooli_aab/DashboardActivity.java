@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.wasooli_aab.Delivery.DeliveryActivity;
 import com.example.wasooli_aab.customer.CustomerActivity;
 import com.example.wasooli_aab.employee.EmployeeActivity;
 import com.example.wasooli_aab.vendor.VendorActivity;
@@ -144,6 +145,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         } else if (id == R.id.nav_vendor) {
             drawerLayout.closeDrawer(GravityCompat.START);
             Intent intent = new Intent(DashboardActivity.this, VendorActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_delivery) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            Intent intent = new Intent(DashboardActivity.this, DeliveryActivity.class);
             startActivity(intent);
         }else if (id == R.id.nav_profile) {
             drawerLayout.closeDrawer(GravityCompat.START);
