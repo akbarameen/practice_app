@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.wasooli_aab.Delivery.DeliveryActivity;
 import com.example.wasooli_aab.customer.CustomerActivity;
 import com.example.wasooli_aab.employee.EmployeeActivity;
+import com.example.wasooli_aab.newCustomers.CustomersActivity;
 import com.example.wasooli_aab.vendor.VendorActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -138,7 +139,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             drawerLayout.closeDrawer(GravityCompat.START);
             Intent intent = new Intent(DashboardActivity.this, CustomerActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_employee) {
+        }else if (id == R.id.nav_customers) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            Intent intent = new Intent(DashboardActivity.this, CustomersActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_employee) {
             drawerLayout.closeDrawer(GravityCompat.START);
             Intent intent = new Intent(DashboardActivity.this, EmployeeActivity.class);
             startActivity(intent);
