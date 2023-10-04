@@ -5,29 +5,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".newCustomers.AddCustomersFragment1">
-
-    <!-- Add your input fields for step 1 here -->
-    <EditText
-        android:id="@+id/edt_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name" />
-
-    <!-- Add other input fields as needed -->
-
-    <!-- Next and Previous buttons -->
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next" />
-
-    <Button
-        android:id="@+id/btn_previous"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Previous" />
-
+            <!--            material design text Fields-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="@string/enter_name"
+                android:textColorHint="@color/secondary_color"
+                app:boxStrokeColor="@color/input_border_color"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/primary_color"
+                app:startIconDrawable="@drawable/ic_baseline_supervised_user_circle_24"
+                app:startIconTint="@color/primary_color"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/primary_color"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Address "
+                android:textColorHint="@color/secondary_color"
+                app:boxStrokeColor="@color/input_border_color"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/primary_color"
+                app:startIconDrawable="@drawable/ic_location"
+                app:startIconTint="@color/primary_color"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/primary_color"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Cell Phone"
+                android:textColorHint="@color/secondary_color"
+                app:boxStrokeColor="@color/input_border_color"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/primary_color"
+                app:startIconDrawable="@drawable/ic_phone"
+                app:startIconTint="@color/primary_color"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/primary_color"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_cell"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:textColor="@color/primary_color"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Quantity"
+                android:textColorHint="@color/secondary_color"
+                app:boxStrokeColor="@color/input_border_color"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/primary_color"
+                app:startIconDrawable="@drawable/ic_bar_chart"
+                app:startIconTint="@color/primary_color"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/primary_color"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:textColor="@color/primary_color"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

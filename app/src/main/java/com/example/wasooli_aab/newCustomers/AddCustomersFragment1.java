@@ -26,13 +26,13 @@ public class AddCustomersFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_customers1, container, false);
 
-        Button btnNext = view.findViewById(R.id.btn_next);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((AddEditCustomersActivity) getActivity()).nextFragment();
-            }
-        });
+//        Button btnNext = view.findViewById(R.id.btn_next);
+//        btnNext.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ((AddEditCustomersActivity) getActivity()).nextFragment();
+//            }
+//        });
 
         return view;
     }
